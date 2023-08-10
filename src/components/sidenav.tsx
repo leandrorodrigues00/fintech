@@ -1,10 +1,14 @@
-import fintech from "../assets/fintech.svg";
-import resumo from "../assets/icons/resumo.svg";
-import vendas from "../assets/icons/vendas.svg";
-import webhooks from "../assets/icons/webhooks.svg";
-import contato from "../assets/icons/contato.svg";
-import configuracoes from "../assets/icons/configuracoes.svg";
-import sair from "../assets/icons/sair.svg";
+import { NavLink } from "react-router-dom";
+
+import {
+  Resumo,
+  Vendas,
+  Webhooks,
+  Configuracoes,
+  Contato,
+  Sair,
+} from "../assets/icons";
+
 import FintechSVG from "../assets/fintech-svg";
 
 export function Sidenav() {
@@ -14,42 +18,42 @@ export function Sidenav() {
       <ul>
         <li>
           <span>
-            <img src={resumo} alt="" />
+            <img src={Resumo} alt="" />
           </span>
-          <a href="#">Resumo</a>
+          <NavLink to={"/"}>Resumo</NavLink>
         </li>
 
         <li>
           <span>
-            <img src={vendas} alt="" />
+            <img src={Vendas} alt="" />
           </span>
-          <a href="#">Vendas</a>
+          <NavLink to={"/vendas"}>Vendas</NavLink>
         </li>
 
         <li>
           <span>
-            <img src={webhooks} alt="" />
+            <img src={Webhooks} alt="" />
           </span>
           <a>Webhooks</a>
         </li>
 
         <li>
           <span>
-            <img src={configuracoes} alt="" />
+            <img src={Configuracoes} alt="" />
           </span>
           <a>Configurações</a>
         </li>
 
         <li>
           <span>
-            <img src={contato} alt="" />
+            <img src={Contato} alt="" />
           </span>
           <a>Contato</a>
         </li>
 
         <li>
           <span>
-            <img src={sair} alt="" />
+            <img src={Sair} alt="" />
           </span>
           <a>Sair</a>
         </li>

@@ -1,6 +1,6 @@
 import { useData } from "../context/data-context";
 
-export function Resumo() {
+export function Summary() {
   const { data } = useData();
 
   if (data === null) return null;

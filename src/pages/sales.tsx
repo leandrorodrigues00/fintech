@@ -1,7 +1,7 @@
 import { SaleItem } from "../components/sale-item";
 import { useData } from "../context/data-context";
 
-export function Vendas() {
+export function Sales() {
   const { data } = useData();
 
   if (data === null) return null;
