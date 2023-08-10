@@ -1,17 +1,8 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-import useFetch from "../hooks/useFetch";
+import { VendaConfig } from "../types";
 import { getDaysAgo } from "../lib/utils";
-
-interface VendaConfig {
-  id: string;
-  nome: string;
-  preco: number;
-  status: "pago" | "processando" | "falha";
-  pagamento: "boleto" | "cartao" | "pix";
-  data: string;
-  parcelas: number | null;
-}
+import useFetch from "../hooks/useFetch";
 
 interface DataContextConfig {
   data: VendaConfig[] | null;
