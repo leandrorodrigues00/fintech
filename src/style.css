@@ -40,7 +40,7 @@ ul {
   gap: var(--gap);
 }
 
-.flex>* {
+.flex > * {
   flex: 1;
 }
 
@@ -81,13 +81,12 @@ ul {
   background: var(--color-5);
 }
 
-
 /* sidenav */
 
 .sidenav li {
   display: flex;
   align-items: center;
-  gap: var(--gap-s)
+  gap: var(--gap-s);
 }
 
 .sidenav li span {
@@ -110,7 +109,6 @@ ul {
 
 .sidenav li:hover span {
   background: var(--color-3);
-
 }
 
 /* daterange */
@@ -134,9 +132,7 @@ ul {
   color: var(--color-1);
 }
 
-
 /* venda */
-
 
 .venda {
   display: grid;
