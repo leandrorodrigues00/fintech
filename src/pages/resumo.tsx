@@ -6,7 +6,7 @@ export function Resumo() {
   if (data === null) return null;
   return (
     <section>
-      <div className="resumo flex">
+      <div className="resumo flex mb">
         <div className="box">
           <h2>Vendas</h2>
           <span>
@@ -31,6 +31,16 @@ export function Resumo() {
           <span>
             {data
               .filter((venda) => venda.status === "processando")
+              .reduce((acc, item) => acc + item.preco, 0)
+              .toLocaleString("pt-br", { style: "currency", currency: "BRL" })}
+          </span>
+        </div>
+
+        <div className="box">
+          <h2>Canceladas</h2>
+          <span>
+            {data
+              .filter((venda) => venda.status === "falha")
               .reduce((acc, item) => acc + item.preco, 0)
               .toLocaleString("pt-br", { style: "currency", currency: "BRL" })}
           </span>
