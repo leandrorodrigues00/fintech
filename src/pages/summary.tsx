@@ -1,10 +1,11 @@
+import Loading from "../components/loading";
 import { SalesChart } from "../components/sales-chart";
 import { useData } from "../context/data-context";
 
 export function Summary() {
   const { data } = useData();
 
-  if (data === null) return null;
+  if (data === null) return <Loading />;
   return (
     <section>
       <div className="resumo flex mb">
