@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { DateRange } from "./date-range";
 import { Months } from "./months";
 import { useLocation } from "react-router-dom";
+import { ThemeButton } from "./theme-button";
 
 export function Header() {
   const [title, setTitle] = useState("Resumo");
@@ -21,7 +22,12 @@ export function Header() {
     <header className="mb">
       <div className="daterange mb">
         <DateRange />
-        <h1 className="box bg-3">{title}</h1>
+
+        <div style={{ alignItems: "center" }} className="box summary flex bg-3">
+          <h1>{title}</h1>
+
+          <ThemeButton />
+        </div>
       </div>
       <Months />
     </header>
