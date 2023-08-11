@@ -1,5 +1,4 @@
 import {
-  CartesianGrid,
   Legend,
   Line,
   LineChart,
@@ -8,38 +7,50 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+
 import { VendaConfig } from "../types";
 
 interface SalesChartProps {
   data: VendaConfig[];
 }
 
-const chartData = [
-  {
-    data: "2023-08-10",
-    pago: 3000,
-    processando: 1031,
-    falha: 200,
-  },
-  {
-    data: "2023-08-11",
-    pago: 3000,
-    processando: 1031,
-    falha: 20,
-  },
+interface VendaDia {
+  data: string;
+  pago: number;
+  processando: number;
+  falha: number;
+}
 
-  {
-    data: "2023-08-12",
-    pago: 100,
-    processando: 201,
-    falha: 100,
-  },
-];
+function transformData(data: VendaConfig[]): VendaDia[] {
+  const dias = data.reduce((acc: { [key: string]: VendaDia }, item) => {
+    const dia = item.data.split(" ")[0];
+
+    if (!acc[dia]) {
+      acc[dia] = {
+        data: dia,
+        pago: 0,
+        falha: 0,
+        processando: 0,
+      };
+    }
+
+    acc[dia][item.status] += item.preco;
+
+    return acc;
+  }, {});
+
+  return Object.values(dias).map((dia) => ({
+    ...dia,
+    data: dia.data.substring(5),
+  }));
+}
 
 export function SalesChart({ data }: SalesChartProps) {
+  const transformedData = transformData(data);
+
   return (
     <ResponsiveContainer width="99%" height={400}>
-      <LineChart data={chartData}>
+      <LineChart data={transformedData}>
         <XAxis dataKey="data" />
         <YAxis />
         <Tooltip />
