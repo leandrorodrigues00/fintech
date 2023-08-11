@@ -24,7 +24,6 @@ interface VendaDia {
 function transformData(data: VendaConfig[]): VendaDia[] {
   const dias = data.reduce((acc: { [key: string]: VendaDia }, item) => {
     const dia = item.data.split(" ")[0];
-
     if (!acc[dia]) {
       acc[dia] = {
         data: dia,
@@ -33,9 +32,7 @@ function transformData(data: VendaConfig[]): VendaDia[] {
         processando: 0,
       };
     }
-
     acc[dia][item.status] += item.preco;
-
     return acc;
   }, {});
 
@@ -46,11 +43,11 @@ function transformData(data: VendaConfig[]): VendaDia[] {
 }
 
 export function SalesChart({ data }: SalesChartProps) {
-  const transformedData = transformData(data);
+  const formattedChartData = transformData(data);
 
   return (
     <ResponsiveContainer width="99%" height={400}>
-      <LineChart data={transformedData}>
+      <LineChart data={formattedChartData}>
         <XAxis dataKey="data" />
         <YAxis />
         <Tooltip />
