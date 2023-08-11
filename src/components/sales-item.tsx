@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { VendaConfig } from "../types";
 
-interface SaleItemProps {
+interface SalesItemProps {
   venda: VendaConfig;
 }
 
-export function SaleItem({ venda }: SaleItemProps) {
+export function SalesItem({ venda }: SalesItemProps) {
   return (
     <div className="venda box">
       <NavLink to={`/vendas/${venda.id}`} style={{ fontFamily: "monospace" }}>

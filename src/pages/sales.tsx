@@ -1,4 +1,4 @@
-import { SaleItem } from "../components/sale-item";
+import { SalesItem } from "../components/sales-item";
 import { useData } from "../context/data-context";
 
 export function Sales() {
@@ -9,7 +9,7 @@ export function Sales() {
     <ul>
       {data.map((venda) => (
         <li key={venda.id}>
-          <SaleItem venda={venda} />
+          <SalesItem venda={venda} />
         </li>
       ))}
     </ul>
